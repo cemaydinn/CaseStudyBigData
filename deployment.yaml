@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-analysis
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ecommerce-analysis
+  template:
+    metadata:
+      labels:
+        app: ecommerce-analysis
+    spec:
+      containers:
+      - name: ecommerce-analysis
+        image: ${DOCKERHUB_USERNAME}/ecommerce-analysis:latest
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi

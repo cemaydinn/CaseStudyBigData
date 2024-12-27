@@ -1,28 +1,34 @@
-# E-Commerce User Behavior Analysis
+# Company X E-Ticaret sitesi Data Analiz Projesi
 
-## Project Overview
-Comprehensive analysis of e-commerce user interactions and sales data.
+Project Overview
+A comprehensive big data analysis solution for e-commerce platform user behavior and sales data processing using PySpark.
 
-## Setup and Installation
+Prerequisites
+Python 3.8+
+Docker
+Apache Spark
+PySpark
+Minimum 16GB RAM
+50GB Free Disk Space
 
-### Local Development
-1. Clone the repository
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run tests: `pytest`
+Installation Instructions
 
-### Docker Setup
-1. Build the image: `docker-compose build`
-2. Run the container: `docker-compose up`
+Local Setup
 
-## CI/CD Pipeline
-- Automated testing on push and pull requests
-- Docker image build and push
-- Kubernetes deployment
+# Clone the repository
+git clone https://github.com/cemaydinn/CaseStudyBigData
+cd ecommerce-data-analysis
 
-## Technologies
-- Python
-- Docker
-- GitHub Actions
-- Kubernetes
-- PostgreSQL
-- Redis
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install PySpark
+pip install pyspark
+
+# Download Spark (if not already installed)
+wget https://downloads.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz
+tar -xzvf spark-3.2.1-bin-hadoop3.2.tgz

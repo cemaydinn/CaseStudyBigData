@@ -11,7 +11,7 @@ spark = SparkSession.builder \
     .config("spark.driver.memory", "8g") \
     .getOrCreate()
 
-# Read the CSV file
+# CSV oku
 df = spark.read.csv('C:/Users/Casper/Desktop/CaseBigdata/dataset/sales_data.csv', header=True, inferSchema=True)
 
 # Created/Modified files :
@@ -83,7 +83,7 @@ def user_segmentation(user_summary):
     # Pandas dönüştürme
     user_segments = user_summary.toPandas()
 
-    # Toplam harcama ve sipariş sıklığı kullanıcı Seg
+    # Kullanıcılara göre Toplam harcama ve sipariş sıklığı
     def categorize_user(row):
         if row['total_spent'] > 5000 and row['total_orders'] > 10:
             return 'High-Value'
@@ -107,7 +107,7 @@ def product_recommendation(df):
     product_pairs = df.groupBy("user_id") \
         .agg(collect_list("product_id").alias("products"))
 
-    # Basic co-occurrence matrix (simplified)
+    # eşleşme matrisi
     def find_recommendations(products):
         recommendations = {}
         for i in range(len(products)):
@@ -116,7 +116,7 @@ def product_recommendation(df):
                 recommendations[pair] = recommendations.get(pair, 0) + 1
         return recommendations
 
-    # Apply recommendation logic
+    # mantıksal tavsiye
     recommendations_df = product_pairs.rdd \
         .map(lambda x: find_recommendations(x.products)) \
         .collect()
